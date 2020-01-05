@@ -48,13 +48,22 @@ public class xpath {
         WebElement log= driver.findElement(By.xpath("//a[@class='button secondary radius']"));
         log.click();
 
-        WebElement alert= driver.findElement(By.xpath("//*[@id=\"flash\"]"));
-        String test2= "You logged out of the secure area!";
-        if(alert.getText().equals(test2)){
-            System.out.println("Success");
-        }else{
-            System.out.println("Failure");
-        }
+
+        WebElement logoutmessage=driver.findElement(By.xpath("//*[@id='flash']"));
+        String logoutmessagetext=logoutmessage.getText();
+        System.out.println(logoutmessagetext);
+        String logoutmessagetext1=logoutmessagetext.trim().split("!")[0]+"!";
+        String logoutmessagetexttest="You logged out of the secure area!";
+        System.out.println(logoutmessagetext1.equals(logoutmessagetexttest) ? "success" : "fail");
+
+//        WebElement alert= driver.findElement(By.xpath("//*[@id=\"flash\"]"));
+//        System.out.println(alert.getText());
+//        String test2= "You logged out of the secure area!";
+//        if(alert.getText().equals(test2)){
+//            System.out.println("Success");
+//        }else{
+//            System.out.println("Failure");
+//        }
         driver.quit();
     }
 }
