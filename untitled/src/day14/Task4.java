@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,9 +27,9 @@ public class Task4 {
 
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("alert-autocloseable-success")));
-            System.out.println("Success!");
+
         } catch (Exception e) {
-            System.out.println("Failure!");
+           Assert.fail("The element did not disappear in 3 seconds ");
         }
     }
 

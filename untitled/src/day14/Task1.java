@@ -40,7 +40,7 @@ public void clear(){
 
     }
 @Test(dataProvider ="valuesProvider")
-//@Parameters({driver,100})
+
     private static void clickAndValidateButtons(WebDriver driver, int num){
         WebElement btn = driver.findElement(By.xpath("//*[@onclick='addElement()']"));
         for (int i = 0; i < num; i++) {
